@@ -1,0 +1,3 @@
+turn on scripts: Set-ExecutionPolicy Unrestricted
+change directory: cd [Insert Directory]
+cd advanced parameters: cd ../.. (Brings you to the active directory)
