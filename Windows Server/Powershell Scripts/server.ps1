@@ -1,5 +1,6 @@
 # warning
 echo "Warning, this may not work if not ran in administrator. This may also not work if scripts are disabled."
+Echo "Warning, this has removed features due to weather or not I belive it will work."
 
 # users
 Get-LocalUser
@@ -26,15 +27,8 @@ net accounts
 Set-SmbServerConfiguration -EnableSMB1Protocol $false
 
 # quick virus scan
-Start-MpScan -ScanType Custom -ScanPath C:/users
+Start-MpScan -ScanType fullscan
 pause
-
-# windows updates
-wuauclt /detectnow
-echo "Please type: wuauclt /updatenow    after the script finishes"
-
-# disable scripts
-Set-ExecutionPolicy Restricted
 
 # finish
 curl parrot.live
