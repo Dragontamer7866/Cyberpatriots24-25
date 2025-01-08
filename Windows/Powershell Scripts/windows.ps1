@@ -1,8 +1,22 @@
+@echo off
+title 'Windows Script'
 # warning
 echo "Warning, this may not work if not ran in administrator. This may also not work if scripts are disabled."
 
+# Execution Policy
+Get-ExecutionPolicy
+$Execution = Get-ExecutionPolicy
+
+if (Restricted -eq $Execution)
+{
+    echo 'Go open a terminal and type "Set-ExecutionPolicy Unrestricted" then execute this script again.'
+    pause
+    exit
+}
+
 # users
 Get-LocalUser
+$CurrentUser = Whoami
 
 # wp status
 Get-MpComputerStatus
@@ -26,15 +40,12 @@ net accounts
 Set-SmbServerConfiguration -EnableSMB1Protocol $false
 
 # quick virus scan
-Start-MpScan -ScanType Custom -ScanPath C:/users
-pause
+Start-MpScan -ScanType Fullscan
 
 # windows updates
 wuauclt /detectnow
 echo "Please type: wuauclt /updatenow    after the script finishes"
-
-# disable scripts
-Set-ExecutionPolicy Restricted
+pause
 
 # finish
 curl parrot.live

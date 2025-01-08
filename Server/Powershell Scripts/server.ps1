@@ -1,6 +1,18 @@
+@echo off
 # warning
 echo "Warning, this may not work if not ran in administrator. This may also not work if scripts are disabled."
-Echo "Warning, this has removed features due to weather or not I belive it will work."
+echo "Warning, this has removed features due to weather or not I belive it will work."
+
+# Execution Policy
+Get-ExecutionPolicy
+$Execution = Get-ExecutionPolicy
+
+if (Restricted -eq $Execution)
+{
+    echo 'Go open a terminal and type "Set-ExecutionPolicy Unrestricted" then execute this script again.'
+    pause
+    exit
+}
 
 # users
 Get-LocalUser
