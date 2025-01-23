@@ -1,5 +1,4 @@
 @echo off
-title 'Windows Script'
 # warning
 echo "Warning, this may not work if not ran in administrator. This may also not work if scripts are disabled."
 
@@ -10,7 +9,7 @@ $Execution = Get-ExecutionPolicy
 if (Restricted -eq $Execution)
 {
     echo 'Go open a terminal and type "Set-ExecutionPolicy Unrestricted" then execute this script again.'
-    pause
+    Start-Sleep -Seconds 5
     exit
 }
 
@@ -45,8 +44,4 @@ Start-MpScan -ScanType Fullscan
 # windows updates
 wuauclt /detectnow
 echo "Please type: wuauclt /updatenow    after the script finishes"
-pause
-
-# finish
-curl parrot.live
-pause
+Start-Sleep -Seconds 7

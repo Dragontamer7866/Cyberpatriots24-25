@@ -1,7 +1,6 @@
 @echo off
 # warning
 echo "Warning, this may not work if not ran in administrator. This may also not work if scripts are disabled."
-echo "Warning, this has removed features due to weather or not I belive it will work."
 
 # Execution Policy
 Get-ExecutionPolicy
@@ -10,12 +9,13 @@ $Execution = Get-ExecutionPolicy
 if (Restricted -eq $Execution)
 {
     echo 'Go open a terminal and type "Set-ExecutionPolicy Unrestricted" then execute this script again.'
-    pause
+    Start-Sleep -Seconds 7
     exit
 }
 
 # users
 Get-LocalUser
+$CurrentUser = Whoami
 
 # wp status
 Get-MpComputerStatus
@@ -39,9 +39,15 @@ net accounts
 Set-SmbServerConfiguration -EnableSMB1Protocol $false
 
 # quick virus scan
-Start-MpScan -ScanType fullscan
-pause
+Start-MpScan -ScanType Fullscan
+
+# windows updates
+wuauclt /detectnow
+echo "Please type: wuauclt /updatenow    after the script finishes"
+Start-Sleep -Seconds 7
 
 # finish
-curl parrot.live
-pause
+Set-ExecutionPolicy Restricted
+echo 'Script Complete!'
+Start-Sleep -Seconds 5
+exit
