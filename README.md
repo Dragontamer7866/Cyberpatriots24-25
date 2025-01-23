@@ -1,8 +1,8 @@
-## Cyberpatriots 2024-2025
+# Cyberpatriots 2024-2025
 
 **All of these scripts, are helpful for this years cyberpatriots, and are owned by [Charles R. Dudley Jr.]**
 
-# Help
+## Help
 
 If you have difficultly with the scripts please follow these steps
 
