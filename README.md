@@ -13,15 +13,18 @@ You **CAN** take the code for **anything other than competetions** most competit
 
 If you have difficultly with the scripts please follow these steps
 
-**Code not running?**
+**Code not running?**]
+
 Probably a "Start-Sleep" command, if you don't want to wait use **Ctrl+C**
 
 **Script won't run?**
+
 Probably means that scripts are disabled! To check use "**Get-ExecutionPolicy**"
 If it says "**Restricted**" use  "**Set-ExecutionPolicy Unrestricted**"
 Make sure you run the script as **administrator**!!!!
 
 **Part of script blocked?**
+
 Try gaining ownership of the **System32** folder if you are on a 64 bit computer.
 Try gaining ownership of the **SysWOW64** folder if you are on a 32 bit computer.
 
