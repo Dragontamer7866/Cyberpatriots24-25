@@ -42,6 +42,7 @@ Set-SmbServerConfiguration -EnableSMB1Protocol $false
 Start-MpScan -ScanType Fullscan
 
 # windows updates
+wininit
 wuauclt /detectnow
 echo "Please type: wuauclt /updatenow    after the script finishes"
 Start-Sleep -Seconds 7
