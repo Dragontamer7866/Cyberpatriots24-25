@@ -41,7 +41,8 @@ Set-SmbServerConfiguration -EnableSMB1Protocol $false
 # quick virus scan
 Start-MpScan -ScanType Fullscan
 
-# windows updates
+# windows update
+wininit
 wuauclt /detectnow
 echo "Please type: wuauclt /updatenow    after the script finishes"
 Start-Sleep -Seconds 7
